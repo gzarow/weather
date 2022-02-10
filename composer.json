@@ -1,0 +1,24 @@
+{
+    "name": "gzarow/weather",
+    "description": "Weather api module",
+    "keywords": [
+        "Laravel"
+    ],
+    "require": {
+        "illuminate/support": "~8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gzarow\\Weather\\": "src/",
+            "Gzarow\\Weather\\Database\\": "database",
+            "Gzarow\\Weather\\Database\\Seeders\\": "database/seeders"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gzarow\\Weather\\WeatherServiceProvider"
+            ]
+        }
+    }
+}
