@@ -10,8 +10,4 @@ class OpenApiWeather extends Weather
         $this->weatherApiSource = new OpenApiSource();
     }
 
-    public function display()
-    {
-        println("Jestem klasą opartą na Open api");
-    }
 }

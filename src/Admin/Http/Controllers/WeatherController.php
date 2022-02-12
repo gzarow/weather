@@ -15,7 +15,7 @@ class WeatherController extends Controller
     {
         try {
             $openApi = new OpenApiWeather();
-            $weather = $openApi->getCurrentWeather($user->id);
+            $weather = $openApi->getCurrentWeatherInfo($user->id);
         } catch (\Exception $e) {
             Log::error('Get current weather for user failed: ' . ' message: ' . $e->getMessage());
             $res = ['message' => $e->getMessage(), 'error' => true];

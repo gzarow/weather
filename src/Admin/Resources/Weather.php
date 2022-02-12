@@ -27,7 +27,7 @@ class Weather extends JsonResource
             'humidity' => $this->humidity,
             'description' => $this->description,
             'icon' => $this->icon,
-            'updated_at' => $this->updated_at->toDateTimeString(),
+            'updated_at' => $this->updated_at ? $this->updated_at->toDateTimeString() : null,
         ];
     }
 }

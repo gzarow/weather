@@ -1,6 +1,8 @@
 <?php
 namespace Gzarow\Weather\Utilities;
 
+use Gzarow\Weather\Admin\Models\User;
+
 abstract class Weather
 {
     /**
@@ -13,9 +15,15 @@ abstract class Weather
         $this->weatherApiSource = $ws;
     }
 
-    public function getCurrentWeather($userId)
+    public function startUpdateWeather($userId)
     {
-        return $this->weatherApiSource->currentWeather($userId);
+        return $this->weatherApiSource->updateWeather($userId);
+    }
+
+    public function getCurrentWeatherInfo($userId)
+    {
+        $weatherInfo = User::getCurrentWeatherInfo($userId)->get();
+        return $weatherInfo;
     }
 
 }

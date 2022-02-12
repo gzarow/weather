@@ -2,6 +2,8 @@
 
 namespace Gzarow\Weather;
 
+use Gzarow\Weather\Admin\Console\WeatherUpdateCommand;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 
 class WeatherServiceProvider extends ServiceProvider
@@ -26,13 +28,14 @@ class WeatherServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->app->booted(function () {
-
+                $schedule = app(Schedule::class);
+                $schedule->command(WeatherUpdateCommand::class)->everyFifteenMinutes();
             });
         }
 
         // Registering package commands.
         $this->commands([
-
+            WeatherUpdateCommand::class,
         ]);
     }
 

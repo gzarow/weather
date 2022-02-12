@@ -20,7 +20,7 @@ class UserLocalization extends Model
     protected $fillable = [
         'user_id',
         'city_name',
-        'longitude',
         'latitude',
+        'longitude',
     ];
 }

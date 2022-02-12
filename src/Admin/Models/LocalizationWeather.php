@@ -27,5 +27,6 @@ class LocalizationWeather extends Model
         'humidity',
         'description',
         'icon',
+        'api_data',
     ];
 }
