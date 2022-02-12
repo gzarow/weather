@@ -1,6 +1,7 @@
 <?php
 namespace Gzarow\Weather\Utilities;
 
-interface WeatherSource {
-	public function currentWeather($userId);
+interface WeatherSource
+{
+    public function currentWeather($userId);
 }

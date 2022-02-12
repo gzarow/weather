@@ -4,14 +4,14 @@ namespace Gzarow\Weather\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserWeather extends Model
+class UserLocalization extends Model
 {
     /**
      * Nazwa tabeli w bazie.
      *
      * @var string
      */
-    protected $table = 'weather.user_weather';
+    protected $table = 'weather.user_localization';
 
     /**
      * Lista pól które można zapisać do bazy
@@ -20,16 +20,7 @@ class UserWeather extends Model
     protected $fillable = [
         'user_id',
         'city_name',
-        'city_id',
-        'longitude', 
+        'longitude',
         'latitude',
-        'temp',
-        'feels_like',
-        'temp_min',
-        'temp_max',
-        'pressure',
-        'humidity',
-        'description',
-        'icon'
     ];
 }

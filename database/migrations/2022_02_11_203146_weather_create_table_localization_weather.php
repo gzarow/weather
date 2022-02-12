@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class WeatherCreateTableUserWeather extends Migration
+class WeatherCreateTableLocalizationWeather extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class WeatherCreateTableUserWeather extends Migration
      */
     public function up()
     {
-        Schema::create('weather.user_weather', function (Blueprint $table) {
+        Schema::create('weather.localization_weather', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('city_name');
-            $table->integer('city_id');
-            $table->decimal('longitude', 9, 2);
-            $table->decimal('latitude', 9, 2);
+            $table->bigInteger('localization_id');
+            $table->foreign('localization_id')->references('id')->on('weather.user_localization')->onDelete('cascade');
             $table->decimal('temp', 9, 2);
             $table->decimal('feels_like', 9, 2);
             $table->decimal('temp_min', 9, 2);
@@ -29,6 +25,7 @@ class WeatherCreateTableUserWeather extends Migration
             $table->integer('humidity');
             $table->string('description');
             $table->string('icon');
+            $table->json('api_data');
             $table->timestamps();
         });
     }

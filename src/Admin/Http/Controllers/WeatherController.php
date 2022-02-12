@@ -3,17 +3,25 @@
 namespace Gzarow\Weather\Admin\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Gzarow\Weather\Admin\Resources\Weather as WeatherResource;
 use Gzarow\Weather\Utilities\OpenApiWeather;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class WeatherController extends Controller
 {
     public function getUserWeather(Request $request, User $user)
-    {  
-      $openApi = new OpenApiWeather();
-      $result = $openApi->getCurrentWeather($user->id);
-      return $result;
+    {
+        try {
+            $openApi = new OpenApiWeather();
+            $weather = $openApi->getCurrentWeather($user->id);
+        } catch (\Exception $e) {
+            Log::error('Get current weather for user failed: ' . ' message: ' . $e->getMessage());
+            $res = ['message' => $e->getMessage(), 'error' => true];
+            $code = 500;
+            return \response()->json($res)->setStatusCode($code);
+        }
+        return WeatherResource::collection($weather);
     }
 }

@@ -43,7 +43,7 @@ class WeatherServiceProvider extends ServiceProvider
      */
     public function register()
     {
-       //
+        //
     }
 
     /**
