@@ -10,11 +10,10 @@ use Gzarow\Weather\Utilities\OpenApiWeather;
 
 class WeatherController extends Controller
 {
-
-    public function getUserWeather(Request $request, $userId)
+    public function getUserWeather(Request $request, User $user)
     {  
       $openApi = new OpenApiWeather();
-      $result = $openApi->getCurrentWeather($userId);
+      $result = $openApi->getCurrentWeather($user->id);
       return $result;
     }
 }
