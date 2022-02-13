@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Log;
 
 trait HttpClient
 {
+    /**
+     * Make GuzlleHttp Get Request
+     *
+     * @param  string $url
+     * @param  integer $timeout
+     * @return string
+     */
     public function makeGetRequest($url, $timeout)
     {
         try {
@@ -19,7 +26,6 @@ trait HttpClient
             }
         } catch (\Exception $e) {
             Log::error('Get data failed, ' . 'message: ' . $e->getMessage());
-            return null;
         }
     }
 }

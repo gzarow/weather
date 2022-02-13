@@ -5,6 +5,9 @@ namespace Gzarow\Weather\Utilities;
 use Gzarow\Weather\Admin\Models\LocalizationWeather;
 use Gzarow\Weather\Utilities\Traits\HttpClient;
 
+/**
+ * OpenApiSource
+ */
 class OpenApiSource implements WeatherSource
 {
     use HttpClient;
@@ -13,6 +16,12 @@ class OpenApiSource implements WeatherSource
     const TIMEOUT = 10;
     const UNITS = 'metric';
 
+    /**
+     * Update weather
+     *
+     * @param  \Gzarow\Weather\Admin\Models\UserLocalization $localization
+     * @return void
+     */
     public function updateWeather($localization)
     {
         $response = $this->makeGetRequest(
@@ -29,12 +38,25 @@ class OpenApiSource implements WeatherSource
         }
     }
 
+    /**
+     * Update weather in database
+     *
+     * @param  array $data
+     * @param  integer $localizationId
+     * @return void
+     */
     private function updateLocalizationWeather($data, $localizationId)
     {
         $preparedData = $this->prepareData($data);
         LocalizationWeather::updateOrCreate(['localization_id' => $localizationId], $preparedData);
     }
 
+    /**
+     * Prepare data for update in database
+     *
+     * @param  array $data
+     * @return array
+     */
     private function prepareData($data)
     {
         $prepared = [
@@ -46,7 +68,7 @@ class OpenApiSource implements WeatherSource
             'humidity' => $data['main']['humidity'],
             'description' => $data['weather'][0]['description'],
             'icon' => $data['weather'][0]['icon'],
-            'api_data' => $data,
+            'api_data' => json_encode($data),
         ];
         return $prepared;
     }

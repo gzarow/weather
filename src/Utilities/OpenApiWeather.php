@@ -2,6 +2,9 @@
 
 namespace Gzarow\Weather\Utilities;
 
+/**
+ * OpenApiWeather
+ */
 class OpenApiWeather extends Weather
 {
 
@@ -9,5 +12,4 @@ class OpenApiWeather extends Weather
     {
         $this->weatherApiSource = new OpenApiSource();
     }
-
 }

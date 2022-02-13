@@ -4,8 +4,19 @@ namespace Gzarow\Weather\Admin\Models;
 
 use App\Models\User as AppUser;
 
+/**
+ * User
+ */
 class User extends AppUser
 {
+
+    /**
+     * Scope getCurrentWeatherInfo
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @param  integer $userId
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeGetCurrentWeatherInfo($query, $userId)
     {
         $query->select(

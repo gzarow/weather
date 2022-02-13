@@ -5,6 +5,9 @@ namespace Gzarow\Weather\Admin\Console;
 use Gzarow\Weather\Admin\Models\UserLocalization;
 use Illuminate\Console\Command;
 
+/**
+ * WeatherUpdateCommand
+ */
 class WeatherUpdateCommand extends Command
 {
     /**
@@ -41,7 +44,6 @@ class WeatherUpdateCommand extends Command
             foreach ($localizations as $localization) {
                 dispatch(new \Gzarow\Weather\Admin\Jobs\UpdateWeather($localization))->onConnection('sync');
             }
-
         } else {
             $this->info('There is no localizations to update');
         }

@@ -4,6 +4,9 @@ namespace Gzarow\Weather\Admin\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * Weather
+ */
 class Weather extends JsonResource
 {
     /**

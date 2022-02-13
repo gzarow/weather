@@ -18,8 +18,8 @@ class WeatherCreateTableUserLocalization extends Migration
             $table->integer('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('city_name');
-            $table->decimal('latitude', 9, 2);
-            $table->decimal('longitude', 9, 2);
+            $table->double('latitude');
+            $table->double('longitude');
             $table->timestamps();
         });
     }

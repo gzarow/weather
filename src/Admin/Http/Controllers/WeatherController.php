@@ -9,6 +9,10 @@ use Gzarow\Weather\Utilities\OpenApiWeather;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class WeatherController
+ * @package Gzarow\Weather\Admin\Http\Controllers;
+ */
 class WeatherController extends Controller
 {
     public function getUserWeather(Request $request, User $user)
