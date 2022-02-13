@@ -6,7 +6,7 @@
 - Postgres SQL
 
 ## Instrukcja instalacji modułu
-Zainstalować Laravel 
+Zainstalować Laravel 8.x
 ```bash
 composer create-project laravel/laravel:^8.0 example-app
 ```
@@ -39,7 +39,6 @@ Dodać adresy url publicznego repozytorium do głównego pliku composer.json
   ]
 }
 ```
-
 Wykonać polecenie
 
 ```bash
@@ -53,7 +52,7 @@ php artisan migrate
 ```
 
 Wykonać seeda użytkowników mockowych i ich lokalizacji przez wydanie poleceń (opcjonalnie do testów):
-
+Seedowanych jest 5 userów i ich lokalizacje.
 ```bash
 php artisan db:seed --class=Gzarow\\Weather\\Database\\Seeders\\UsersSeeder
 php artisan db:seed --class=Gzarow\\Weather\\Database\\Seeders\\UserLocalizationSeeder
@@ -67,7 +66,7 @@ Api pobierające pogodę dla usera
 ```bash
 GET /api/weather/{user}
 ```
-Lokalnie można testować czy działa harmonogram cron który jest ustawiony na co 15min
+Lokalnie można testować czy działa harmonogram cron, który jest ustawiony na co 15min
 ```bash
 php artisan schedule:work
 ```
