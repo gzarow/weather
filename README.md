@@ -10,7 +10,7 @@ Zainstalować Laravel 8.x
 ```bash
 composer create-project laravel/laravel:^8.0 example-app
 ```
-Skonfigurować plik .env w szczególności ustawienia bazy i klucz api open weather danych np.
+Skonfigurować plik .env w szczególności ustawienia bazy danych i klucz api open weather np.
 ```bash
 APP_URL=http://pogoda.test
 
